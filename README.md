@@ -16,9 +16,10 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
+
 ### Association
 - has_many :groups, through: groups_users
-- has_many :comments, through: groups_users
+- has_many :messages, through: groups_users
 
 
 ## groupsテーブル
@@ -29,9 +30,9 @@
 
 ### Association
 - has_many :users, through: groups_users
-- has_many :comments, through: groups_users
+- has_many :messages, through: groups_users
 
-## commentsテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -39,9 +40,8 @@
 |image|text|null: false|
 
 ### Association
-- belong_to :user
-- belong_to :group
-
+- has_many :users, through: groups_users
+- has_many :groups, through: groups_users
 
 
 
