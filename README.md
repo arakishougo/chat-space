@@ -13,22 +13,35 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|integer|null: false|
+|nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :groups
-- has_many :comments
-- belong_to :user
+- has_many :groups, through: groups_users
+- has_many :comments, through: groups_users
+
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: ture|
-|user_id|integer|null: false, foreign_key: ture|
+|group_name|integer|null: false, foreign_key: ture|
+
 ### Association
-- has_many :users
-- has_many :comments
-- belongs _to :group
+- has_many :users, through: groups_users
+- has_many :comments, through: groups_users
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|image|text|null: false|
+
+### Association
+- belong_to :user
+- belong_to :group
+
+
+
 
