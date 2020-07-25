@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_group
+  before_action :set_group #初期設定でシステムが動く
   
   def index
     @message = Message.new
@@ -27,6 +27,6 @@ class MessagesController < ApplicationController
   end
 
   def set_group
-    @group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id]) #最初に処理される
   end
 end
